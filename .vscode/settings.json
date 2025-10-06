@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "commctrl.h": "c",
+        "windows.h": "c"
+    }
+}
