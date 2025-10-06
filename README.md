@@ -58,6 +58,7 @@ Dessa forma, o software demonstra a viabilidade da automação de testes de apli
 
 ### Autor
 Thalis Ferreira
+
 Faculdade: Faculdade FIED
 
 Curso: Sistemas de Informação
