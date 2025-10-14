@@ -14,6 +14,7 @@ O projeto está organizado em:
 Contém a versão do protótipo com **interface gráfica**:
 - `main.c` → arquivo fonte principal que cria a janela e os componentes GUI.
 - `typeText.c` → código responsável por simular a digitação automática.
+- - `typeText.h` → arquivo de exemplo de entrada de texto.
 - `test.txt` → arquivo de exemplo de entrada de texto.
 - `typingTool.exe` → executável gerado após compilação.
 
@@ -21,7 +22,7 @@ Contém a versão do protótipo com **interface gráfica**:
 
 ### 1️⃣ Compilação
 ```bash
-gcc main.c -o typingTool.exe
+gcc main.c typeText.c -o TypingTool.exe -lcomctl32 -lgdi32 -municode
 ```
 O que este código faz:
 - `gcc` → invoca o GNU Compiler Collection, que compila programas em C.
