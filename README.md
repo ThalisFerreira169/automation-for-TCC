@@ -8,7 +8,7 @@ Este repositório contém o **código-fonte em C** do **protótipo inicial** do 
 
 ## Estrutura do Projeto
 
-O projeto está organizado em duas pastas principais:
+O projeto está organizado em:
 
 ### 1️⃣ `app-with-gui`
 Contém a versão do protótipo com **interface gráfica**:
@@ -17,15 +17,7 @@ Contém a versão do protótipo com **interface gráfica**:
 - `test.txt` → arquivo de exemplo de entrada de texto.
 - `typingTool.exe` → executável gerado após compilação.
 
-### 2️⃣ `app-without-gui`
-Contém a versão **sem interface gráfica**, para testes automatizados de entrada de texto:
-- `text.txt` → arquivo com texto de teste.
-- `typeText.c` → código que realiza a simulação de digitação.
-- `typingTool.exe` → executável gerado após compilação.
-
 ## Como Compilar e Executar
-
-Para rodar o protótipo, siga os passos abaixo dentro da pasta desejada (`app-with-gui` ou `app-without-gui`):
 
 ### 1️⃣ Compilação
 ```bash
@@ -44,9 +36,7 @@ O que este código faz:
 - `.\` → indica que o executável está no diretório atual.
 - `typingTool.exe` → é o arquivo executável gerado na compilação.
 - `-o typingTool.exe` → indica o nome do executável de saída. O compilador gera o arquivo 
-No caso da versão com GUI, uma janela é aberta com um campo de texto e um botão que, quando acionado, simula a digitação do texto digitado.
-
-Na versão sem GUI, o programa pode ser adaptado para ler textos de arquivo e simular a digitação automaticamente.
+No caso, uma janela é aberta com um campo de texto e um botão que, quando acionado, simula a digitação do texto digitado.
 
 ### Funcionalidade Principal
 O protótipo realiza simulação de digitação automática no Windows, utilizando funções da API do Windows (WinAPI), que dependem de DLLs nativas como:
