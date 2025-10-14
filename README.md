@@ -27,6 +27,9 @@ O que este código faz:
 - `gcc` → invoca o GNU Compiler Collection, que compila programas em C.
 - `main.c` → arquivo fonte principal do projeto.
 - `-o typingTool.exe` → indica o nome do executável de saída. O compilador gera o arquivo `typingTool.exe` que pode ser executado no Windows.
+- `-lcomctl32` → linka a biblioteca de controles comuns do Windows.
+- `-lgdi32` → linka a biblioteca de gráficos do Windows (para fontes e renderização GUI).
+`-municode` → habilita suporte a Unicode em funções do Windows (wWinMain, CreateWindowExW, etc.).
 
 ### 2️⃣ Execução
 ```bash
