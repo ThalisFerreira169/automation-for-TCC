@@ -14,7 +14,7 @@ O projeto está organizado em:
 Contém a versão do protótipo com **interface gráfica**:
 - `main.c` → arquivo fonte principal que cria a janela e os componentes GUI.
 - `typeText.c` → código responsável por simular a digitação automática.
-- `typeText.h` → header que declara as funções de digitação automática (pressKey, isCapsLockOn, type).
+- `typeText.h` → header que declara as funções de digitação automática (`pressKey`, `isCapsLockOn`, `type`).
 - `test.txt` → arquivo de exemplo de entrada de texto.
 - `typingTool.exe` → executável gerado após compilação.
 
