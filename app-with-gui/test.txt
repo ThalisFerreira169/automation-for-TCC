@@ -1,1 +1,21 @@
-Test
+Olá, este é um teste completo de digitação automática!
+
+Verifique se todos os acentos funcionam: á, é, í, ó, ú, â, ê, ô, ã, õ, ç.
+
+Inclua também letras maiúsculas e minúsculas: Aa Bb Cc Dd Ee Ff Gg.
+
+Testando números: 1234567890.
+
+E alguns símbolos: !@#$%^&*()_+-=[]{};':",.<>/?\|
+
+Agora vamos testar linhas diferentes:
+Linha 1
+Linha 2
+Linha 3
+
+E tabs: 	Tab1	Tab2	Tab3
+
+-x-
+
+SimularSimulação
+CûCú
