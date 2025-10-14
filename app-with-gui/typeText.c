@@ -1,10 +1,17 @@
+#include "typeText.h"
+#include <stdlib.h>
 #include <windows.h>
-#include <commctrl.h>
 
 void pressKey(WORD vk)
 {
-    keybd_event(vk, 0, 0, 0);
-    keybd_event(vk, 0, KEYEVENTF_KEYUP, 0);
+    INPUT input[2] = {0};
+    input[0].type = INPUT_KEYBOARD;
+    input[0].ki.wVk = vk;
+
+    input[1] = input[0];
+    input[1].ki.dwFlags = KEYEVENTF_KEYUP;
+
+    SendInput(2, input, sizeof(INPUT));
 }
 
 int isCapsLockOn()
@@ -14,35 +21,49 @@ int isCapsLockOn()
 
 void type(const char* text)
 {
-    int capsLockOn = isCapsLockOn();
+    if (!text) return;
 
-    for (int i = 0; text[i] != '\0'; i++)
+    int len = MultiByteToWideChar(CP_ACP, 0, text, -1, NULL, 0);
+    if (len <= 0) return;
+
+    wchar_t* wtext = (wchar_t*)malloc(len * sizeof(wchar_t));
+    MultiByteToWideChar(CP_ACP, 0, text, -1, wtext, len);
+
+    for (int i = 0; wtext[i] != L'\0'; i++)
     {
-        char c = text[i];
-
-        SHORT vkNormal = VkKeyScan(c);
+        wchar_t wc = wtext[i];
         INPUT input[2] = {0};
 
-        int isUpper = (vkNormal & 0x0100) != 0;
+        if (wc == L'\n')
+        {
+            input[0].type = INPUT_KEYBOARD;
+            input[0].ki.wVk = VK_RETURN;
 
-        if (isUpper && !capsLockOn) {
-            keybd_event(VK_SHIFT, 0, 0, 0);
+            input[1] = input[0];
+            input[1].ki.dwFlags = KEYEVENTF_KEYUP;
         }
+        else if (wc == L'\t')
+        {
+            input[0].type = INPUT_KEYBOARD;
+            input[0].ki.wVk = VK_TAB;
 
-        input[0].type = INPUT_KEYBOARD;
-        input[0].ki.wVk = (WORD)vkNormal;
-        input[0].ki.dwFlags = 0;
+            input[1] = input[0];
+            input[1].ki.dwFlags = KEYEVENTF_KEYUP;
+        }
+        else
+        {
+            input[0].type = INPUT_KEYBOARD;
+            input[0].ki.wScan = wc;
+            input[0].ki.dwFlags = KEYEVENTF_UNICODE;
 
-        input[1].type = INPUT_KEYBOARD;
-        input[1].ki.wVk = (WORD)vkNormal;
-        input[1].ki.dwFlags = KEYEVENTF_KEYUP;
+            input[1].type = INPUT_KEYBOARD;
+            input[1].ki.wScan = wc;
+            input[1].ki.dwFlags = KEYEVENTF_UNICODE | KEYEVENTF_KEYUP;
+        }
 
         SendInput(2, input, sizeof(INPUT));
-
-        if (isUpper && !capsLockOn) {
-            keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, 0);
-        }
-
-        Sleep(500);
+        Sleep(50);
     }
+
+    free(wtext);
 }
