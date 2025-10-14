@@ -38,8 +38,7 @@ O que este código faz:
 O que este código faz:
 - `.\` → indica que o executável está no diretório atual.
 - `typingTool.exe` → é o arquivo executável gerado na compilação.
-- `-o typingTool.exe` → indica o nome do executável de saída. O compilador gera o arquivo 
-No caso, uma janela é aberta com um campo de texto e um botão que, quando acionado, simula a digitação do texto digitado.
+- `-o typingTool.exe` → indica o nome do executável de saída.
 
 ### Funcionalidade Principal
 O protótipo realiza simulação de digitação automática no Windows, utilizando funções da API do Windows (WinAPI), que dependem de DLLs nativas como:
